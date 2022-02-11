@@ -1,0 +1,18 @@
+{
+  "lang": "ru",
+  "dir": "ltr",
+  "name": "Breeder App",
+  "description": "Платформа по подбору породистых домашних питомцев Breeder",
+  "short_name": "Breeder",
+  "icons": [
+    {
+      "src": "%PUBLIC_URL%/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "fullscreen",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

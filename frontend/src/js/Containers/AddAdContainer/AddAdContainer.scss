@@ -1,0 +1,54 @@
+.MuiDialog-paperWidthSm {
+    min-width: 900px;
+}
+
+.addform-title {
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 130%;
+    padding: 20px 0 0 6px;
+}
+
+
+@media screen and (min-width: 577px) and (max-width: 930px) {    
+    .MuiDialog-paperWidthSm {
+        min-width: 90%;
+    }
+}
+
+@media screen and (max-width: 577px) {    
+    .MuiDialog-paperWidthSm {
+        min-width: 80%;
+    }
+    .card-label {
+        width: 100%;
+    }
+    .card-input {
+        flex-direction: column;
+        align-items: baseline;
+    }
+    .textarea-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .textarea-input {
+        width: 100%;
+    }
+    .photos-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .puppy-img-container {
+        flex-wrap: wrap;
+        height: unset;
+    }
+    .upload-container {
+        width: 100%;
+    }
+    .textarea-limit {
+        margin-left: 0;
+    }
+    .add-form-submit-btn {
+        margin: 0 auto;
+    }
+}

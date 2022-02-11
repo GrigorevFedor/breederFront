@@ -1,0 +1,153 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.broods__container {
+    max-width: 100%;
+    @include flex(flex-start, flex-start, row wrap);
+}
+
+.alladspage_brood-card {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    max-width: 280px;
+    :nth-of-type(4n) {
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 870px) {    
+    .alladspage_brood-card {
+        margin-right: 30px;
+        margin-bottom: 30px;
+        min-width: 310px;
+        :nth-of-type(4n) {
+            margin-right: 0;
+        }
+        & .brood-card__img-container {
+            min-width: 310px;
+            height: 200px;
+            display: flex;
+        }
+    }
+
+    .brood-card-mobile {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {    
+    
+    .brood-card-mobile {
+        cursor: pointer;
+        margin-right: 0;
+        margin-bottom: 30px;
+
+        width: 350px;
+        min-width: 210px;
+        height: 184px;
+
+        padding: 10px 26px 20px 16px;
+        @include flex(flex-start, center, row nowrap);
+        & .brood-card__img-container {
+            max-width: 122px;
+            height: 122px;
+            display: flex;
+            & .brood-card__img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+        .brood-card_mobile_img-block {
+            @include flex(space-around, center, column nowrap);
+            max-width: 122px;
+            height: 160px;
+        }
+        & .brood-card__info {
+            padding-left: 16px;
+            max-width: 175px;
+            height: 160px;
+            @include flex(space-around, flex-start, column nowrap);
+            & .brood-card__name {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+            & .brood-card__city {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+            
+        }
+        .brood-card__info-mobile-block {
+            width: 100%;
+            @include flex(space-between, center, row nowrap);
+            & .brood-card__date-of-birth {
+                margin-bottom: 12px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 375px) {    
+    
+    .brood-card-mobile {
+        cursor: pointer;
+        margin-right: 0;
+        margin-bottom: 30px;
+
+        max-width: 220px;
+        min-width: 180px;
+        height: 160px;
+
+        padding: 8px 12px;
+        @include flex(flex-start, flex-start, row nowrap);
+        & .brood-card__img-container {
+            max-width: 90px;
+            height: 90px;
+            display: flex;
+            & .brood-card__img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+        .brood-card_mobile_img-block {
+            @include flex(space-around, center, column nowrap);
+            max-width: 90px;
+            height: 90px;
+            padding-top: 30px;
+        }
+        & .brood-card__info {
+            padding-left: 16px;
+            max-width: 110px;
+            height: 180px;
+            @include flex(flex-start, flex-start, column nowrap);
+            & .brood-card__name {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+            & .brood-card__city {
+                font-size: 10px;
+                margin-bottom: 6px;
+            }
+            
+        }
+        .brood-card__info-mobile-block {
+            width: 100%;
+            @include flex(space-between, center, row nowrap);
+        }
+    }
+    .brood-card__date-of-birth {
+        font-weight: $font-normal;
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+    .documents {
+        font-size: 10px;
+        background-color: #f0eeee;
+        border-radius: 10px;
+        padding: 3px;
+        margin-top: 6px;
+    }
+}

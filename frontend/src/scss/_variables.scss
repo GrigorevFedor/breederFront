@@ -1,0 +1,67 @@
+//кнопки
+$main-btn-color: #FF854C;
+$button-border: 2px solid $main-btn-color;
+
+
+$btn-disabled: #B8B8B8;
+// primary orange btns
+$pr-filled-btn: #FF854C;
+$pr-outlined-btn: #FFFFFF;
+$pr-btn-border: 2px solid #FF854C;
+$pr-btn-focus: #FFBA42;
+$pr-outlined-btn-text: #FF854C;
+
+// secondary purple btns
+$sec-filled-btn: #543D93;
+$sec-outlined-btn: #FFFFFF;
+$sec-btn-border: 2px solid #543D93;
+$sec-btn-focus: #C9C1E3;
+$sec-outlined-btn-text: #543D93;
+
+//состояния кнопок
+$main-btn-hover: #FF854C;
+$main-btn-focus: #FFBA42;
+$btn-disabled: #E0E0E0;
+$contact-btn-hover: #FD4447;
+$contact-btn-focus: #FFBA42;
+
+//состояния чекбоксов
+$radio-hover: #543D93;
+$radio-focus-border: 2px solid #C9C1E3;
+$checkbox-focus-color: #FF854C;
+
+//состояния переключателей формы
+$radio-checked: #FFFFFF;
+$radio-disabled: #C9C1E3;
+
+//background
+$main-background: #FFFFFF;
+$footer-background: #543D93;
+$container-background: RGBA(224,224,224,0.27);
+
+//шрифты
+$font: 'IBM Plex Sans', 'arial', sans-serif;
+$font-bold: 500;
+$font-normal: 400;
+$text-color: #1A1A1B;
+$activ-btn-font-color: #FFFFFF;
+$disadled-btn-font-color: #B8B8B8;
+$placeholder-font-color: #B8B8B8;
+
+//размеры элементов
+$navigation-height: 80px;
+
+//валидация формы
+$success: #4DC880;
+$error: #FD4447;
+
+//цвета фона
+$nav-bgcolor: RGBA(224,224,224,0.27);
+$article-bgcolor: RGBA(224,224,224,0.3);
+
+
+//цвета инпутов
+$input-border: #C9C1E3;
+$input-border-focus: #1A1A1B;
+$input-border-filled: #543D93;
+

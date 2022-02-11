@@ -1,0 +1,56 @@
+@import './variables';
+@import './mixins';
+@import './css-reset';
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap');
+
+* {
+    overflow-wrap: break-word;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100%;
+    font-family: $font;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+// .margin {
+//     margin: 90px 0;
+// }
+
+a {
+    text-decoration: none;
+    color: $text-color;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.err-msg {
+    color: red;
+}
+
+@media screen and (max-width: 1300px) {
+    .container {
+        max-width: 85%
+    }
+}
+@media screen and (max-width: 900px) {
+    .container {
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,41 @@
+@import '../../../../scss/mixins';
+@import '../../../../scss/variables';
+
+.add-brood-card-btn {
+    width: 190px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: $font-normal;
+}
+
+.avatar-header {
+    margin-left: 40px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.menu-popup {
+    margin-top: 55px;
+    margin-right: -50px;
+    transform: translate(-50px, 0); 
+    &-item {
+        cursor: pointer;
+        &-link {
+            color: $text-color;                  
+            text-decoration: none;
+        }
+    } 
+}
+
+
+@media screen and (min-width: 577px) and (max-width: 870px) {    
+    .avatar-header {
+        margin-right: 0;
+    }
+}
+@media screen and (max-width: 577px) {    
+    .avatar-header {
+        margin: 0;
+    }
+}

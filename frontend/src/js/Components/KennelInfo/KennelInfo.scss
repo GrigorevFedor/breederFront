@@ -1,0 +1,173 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.kennel-info-container {
+    margin-top: 60px;
+    margin-bottom: 70px;
+    min-height: 1000px;
+    font-family: $font;
+    font-weight: $font-normal;
+    background-color: $container-background;
+    border-radius: 10px;
+    padding: 45px 85px;
+    box-sizing: border-box;
+}
+
+.kennel-info-title_container {
+    max-width: 900px;
+    @include flex(flex-start, center);
+    margin-bottom: 60px;
+}
+
+.kennel-info-title {
+    font-size: 32px;
+    line-height: 130%;
+    margin-right: 30px;
+}
+
+.kennel-approve {
+    width: 180px;
+    height: 18px;
+    text-align: center;
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 140%;
+    color: #B8B8B8;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+}
+
+.kennel-info-subtitle {
+    font-size: 24px;
+    line-height: 130%;
+    padding-bottom: 15px;
+}
+
+.kennel-avatar {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+}
+
+.kennel-infoblock {
+    @include flex(space-around, center, row nowrap);
+    max-width: 1000px;
+    height: 170px;
+}
+
+.kennels-about {
+    height: 100%;
+    padding: 8px;
+    @include flex(space-around, flex-start, column);
+}
+
+.params-list {
+    @include flex(space-around, flex-start, column);
+    flex-grow: 1;
+}
+
+.description-block {
+    padding-top: 50px;
+}
+
+.kennel-description {
+    max-width: 650px;
+    background: #f0eeee;
+    border-radius: 10px;
+    padding: 20px;
+    font-weight: $font-normal;
+    font-size: 18px;
+    line-height: 150%; 
+}
+
+.kennel-ads-block {
+    padding-top: 50px;
+}
+
+.kennel_brood-card {
+    margin-right: 24px;
+    margin-bottom: 24px;
+    max-width: 280px;
+    :nth-of-type(4n) {
+        margin-right: 0;
+    }
+}
+.kennel-img-container {
+    max-width: 180px;
+    height: 180px;
+    margin: 15px 0;
+    display: flex;
+    border-radius: 50%;
+}
+.kennel-avatar {
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 870px) {    
+    .kennel-info-title_container {
+        margin-bottom: 15px;
+    }
+    .kennel_brood-card {
+        margin-right: 30px;
+        margin-bottom: 30px;
+        max-width: 310px;
+        :nth-of-type(4n) {
+            margin-right: 0;
+        }
+        & .brood-card__img-container {
+            max-width: 310px;
+            height: 200px;
+            display: flex;
+        }
+        .kennel-img-container {
+            max-width: 100px;
+            height: 100px;
+            margin: 15px 0;
+            display: flex;
+            border-radius: 50%;
+        }
+    }
+    .kennel-infoblock {
+        height: unset;
+    }
+}
+
+@media screen and (max-width: 870px) {    
+    .kennel-info-container {
+        min-height: 1000px;
+        font-family: $font;
+        font-weight: $font-normal;
+        background-color: $container-background;
+        width: 100%;
+        border-radius: 10px;
+        padding: 20px 10px 20px 20px;
+        box-sizing: border-box;
+    }
+
+    .kennel-infoblock {
+        @include flex(space-around, flex-start, column nowrap);
+        min-height: 320px;
+    }
+    .kennel-avatar {
+        border-radius: 50%;
+        width: 180px;
+        height: 180px;
+    }
+    .kennel-info-title {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    .params-list {
+        & li {
+            margin-bottom: 10px;
+        }
+    }
+    .description-block {
+        margin-top: 30px;
+    }
+}

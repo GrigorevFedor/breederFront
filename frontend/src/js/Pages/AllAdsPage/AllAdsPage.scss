@@ -1,0 +1,23 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.broods-page__container {
+    margin-top: 70px;
+    margin-bottom: 90px;
+}
+
+.broods_heading {
+    margin-bottom: 60px;
+
+    font-weight: $font-normal;
+    font-size: 32px;
+    line-height: 130%;
+    color: #000000;
+}
+
+@media screen and (max-width: 767px) {    
+    .broods-page__container {
+        margin-left: unset;
+    }
+}
+

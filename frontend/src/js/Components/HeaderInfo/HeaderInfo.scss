@@ -1,0 +1,199 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+
+.header-info {
+    @include flex(space-between, flex-start, row nowrap);
+    height: 100%;
+    margin-bottom: 55px;
+    position: relative;
+    &__container {
+        @include flex(center, flex-start, column nowrap);
+        height: 100%;
+        font-family: $font;
+        font-weight: normal;
+        width: 50%;
+    }
+    &__title {
+        left: 0;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 130%;
+        color: #373F41;
+        margin-top: 163px;
+        margin-bottom: 44px;
+        width: 100%;
+        &_marked {
+            color: $main-btn-color;
+        }
+    }
+    &__text {
+        font-size: 18px;
+        max-width: 550px;
+        color: $text-color;
+        padding-bottom: 44px;
+        line-height: 150%;
+    }
+    &_img-container {
+        display: flex;
+        max-width: 50%;
+        & img {
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}
+
+.header_btn {
+    width: 252px;
+    height: 69px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 130%;
+}
+
+
+// tablet
+@media screen and (min-width: 577px) and (max-width: 870px) {
+    
+    .header-info {
+        flex-grow: 1;
+        @include flex(flex-start, center, column nowrap);
+        height: 100%;
+        &__container {
+            @include flex(flex-start, flex-start, column nowrap);
+            width: 100%;
+            height: 100%;
+            margin-top: 0px;
+        }
+        &__title {
+            font-size: 34px;
+            padding-bottom: 20px;
+            position: static;
+            width: 100%;
+            margin-top: 50px;
+        }
+        &_img-container {
+            display: flex;
+            min-width: 80%;
+            & img {
+                width: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+        
+    } 
+}
+
+// mobile 
+@media screen and (max-width: 576px) { 
+    .header-info {
+        flex-grow: 1;
+        position: static;
+        @include flex(flex-start, center, column nowrap);
+        justify-content: center;
+        height: 100%;
+        &__container {
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+        }
+        &__title {
+            font-size: 30px;
+            position: static;
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 55px;
+        }
+        &__text {
+            display: none;
+        }
+        &_img-container {
+            display: flex;
+            min-width: 100%;
+            & img {
+                width: 100%;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+        
+    } 
+    .header_btn {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 1000px) {
+    .header-info {
+        @include flex(flex-start, center, column nowrap);
+        &__container {
+            width: 100%;
+            order: 2;
+        }
+        &__title {
+            width: 100%;
+            margin-top: 70px;
+        }
+        &_img-container {
+            min-width: 80%;
+            order: 0;
+        }
+    }
+}
+
+// @media screen and (min-width: 1800px) {
+//     .header-info {
+//         @include flex(space-between, center, row nowrap);
+//         height: 100%;
+//         margin-bottom: 55px;
+//         &__container {
+//             @include flex(center, flex-start, column nowrap);
+//             height: 100%;
+//             font-family: $font;
+//             font-weight: normal;
+//             width: 70%;
+//         }
+//         &__title {
+//             font-size: 42px;
+//             font-weight: 400;
+//             line-height: 130%;
+//             color: #373F41;
+//             width: 70%;
+//             margin-top: 163px;
+//             &_marked {
+//                 color: $main-btn-color;
+//             }
+//         }
+//         &__text {
+//             font-size: 22px;
+//             max-width: 550px;
+//             color: $text-color;
+//             padding-bottom: 40px;
+//             line-height: 150%;
+//             margin-top: 80px;
+//             & p {
+//                 margin-bottom: 10px;
+//             }
+//         }
+//         &_img-container {
+//             display: flex;
+//             min-width: 50%;
+//             & img {
+//                 width: 100%;
+//                 object-fit: contain;
+//                 object-position: center;
+//             }
+//         }
+//     }
+    
+//     .header_btn {
+//         width: 252px;
+//         height: 69px;
+//         font-weight: 500;
+//         font-size: 22px;
+//     }
+// }

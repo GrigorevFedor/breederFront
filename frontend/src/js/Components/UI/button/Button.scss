@@ -1,0 +1,132 @@
+@import '../../../../scss/variables';
+@import '../../../../scss/mixins';
+
+.button {
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: $font;
+    font-weight: $font-bold;
+    font-size: 14px;
+    line-height: 150%;
+    &:disabled {
+        background-color: $btn-disabled;
+        border: 1px solid $btn-disabled;
+        opacity: 0.2;
+        cursor: default;
+        &:hover {
+            background-color: $btn-disabled;
+            opacity: 0.2;
+            color: $sec-outlined-btn-text;
+        }
+    }
+}
+
+.pr-filled-btn {
+    background-color: $pr-filled-btn;
+    color: #FFFFFF;
+    border: $pr-btn-border;
+    &:hover {
+        background-color: $pr-outlined-btn;
+        color: $pr-outlined-btn-text;
+    }
+    &:focus {
+        background-color: $pr-btn-focus;
+        border: none;
+    }
+}
+
+.pr-outlined-btn {
+    color: $pr-outlined-btn-text;
+    background-color: $pr-outlined-btn;
+    border: $pr-btn-border;
+    &:hover {
+        background-color: $pr-filled-btn;
+        border: none;
+        color: #FFFFFF;
+    }
+    &:focus {
+        background-color: $pr-btn-focus;
+        border: none;
+    }
+}
+
+.sec-filled-btn {
+    background-color: $sec-filled-btn;
+    color: #FFFFFF;
+    border: $sec-btn-border;
+    &:hover {
+        background-color: $sec-outlined-btn;
+        color: $sec-outlined-btn-text;
+    }
+    &:focus {
+        background-color: $sec-btn-focus;
+        border: none;
+    }
+}
+
+.sec-outlined-btn {
+    background-color: $sec-outlined-btn;
+    color: $sec-outlined-btn-text;
+    border: $sec-btn-border;
+    &:hover {
+        background-color: $sec-filled-btn;
+        color: #FFFFFF;
+    }
+    &:focus {
+        background-color: $sec-btn-focus;
+        border: none;
+    }
+}
+
+// navbar
+.btn-signup {
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    &:hover {
+        border-right: 2px solid $pr-filled-btn;
+    }
+}
+.btn-login {
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 0 10px 10px 0;
+    border-left: none;
+}
+
+//disable btn to forms
+.btn-form {
+  border-radius: 10px;
+  border: solid;
+}
+
+
+// about block
+.about-block_btn {
+    width: 252px;
+    height: 69px;
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 130%;
+}
+
+//registration 
+.btn-registration {
+    width: 250px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+//upload-image-hide-button
+.hide-button {
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+}

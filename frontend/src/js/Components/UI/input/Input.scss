@@ -1,0 +1,171 @@
+@import '../../../../scss/variables';
+@import '../../../../scss/mixins';
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 258px;
+    width: 100%;
+    position: relative;
+}
+
+.label {
+    font-family: $font;
+    font-weight: $font-normal;
+    color: $text-color;
+    line-height: 140%;
+    font-size: 16px;
+}
+
+.input {
+    border: 1px solid $input-border;
+    border-radius: 10px;
+    height: 50px;
+    margin-top: 8px;
+    color: $text-color;
+    font-family: $font;
+    line-height: 130%;
+    font-size: 16px;
+    font-style: italic;
+    padding-left: 15px;
+    background-color: #fff;
+    width: auto;
+    &::placeholder {
+        color: $placeholder-font-color;
+        font-family: $font;
+        line-height: 130%;
+        font-size: 16px;
+        font-style: italic;
+    }
+    &:focus {
+        border: 1px solid $input-border-focus;
+        outline: none;
+    }
+    &-multiply {
+        height: 140px;
+        &_tags {
+            overflow-y: overlay;
+            width: 500px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.errMsg {
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    font-size: 12px;
+    font-family: $font;
+    color: red;
+    width: 100%;
+}
+
+/* placeholder text style */
+input[type="date"]::placeholder {
+  color: $placeholder-font-color;
+}
+
+.long-select {
+    width: 300px;
+}
+
+.card-input {
+    flex-direction: row;
+    width: 100%;
+    max-width: unset;
+    align-items: center;
+}
+
+.card-label {
+    width: 200px;
+}
+
+//select placeholder
+.select-placeholder {
+    color: $placeholder-font-color;
+    font-family: $font;
+    line-height: 130%;
+    font-size: 16px;
+    font-style: italic;
+}
+
+//override styles of select
+
+.MuiListItem-root.Mui-selected, .MuiListItem-root.Mui-selected:hover {
+    background-color: $input-border !important;
+}
+
+.edit-icon_btn {
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.edit-icon {
+    color: #4F4F4F;
+    font-size: 12px;
+    margin-left: 12px;
+    display: inline-block;
+    &::before {
+        color: #4F4F4F;
+        font-size: 12px;    
+    }
+}
+
+.multiply-option {
+    border-bottom: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+//override phone input classes
+.react-tel-input {
+    align-self: center;
+    & .form-control {
+        width: 100%;
+        height: 51px;
+        border: 1px solid $input-border;
+        border-radius: 10px;
+        margin-top: 8px;
+        color: $text-color;
+        font-family: $font;
+        line-height: 21px;
+        font-size: 16px;
+        font-style: italic;
+    }
+}
+.phone-label {
+    margin-bottom: 8px;
+}
+
+
+@media screen and (min-width: 577px) and (max-width: 870px) {
+    .input-multiply_tags {
+        width: inherit;
+    }
+}
+
+@media screen and (max-width: 577px) {
+    .card-label {
+        width: 100%;
+        padding: 5px 0px;
+    }
+    .card-input {
+        flex-direction: column;
+        align-items: baseline;
+        padding: 10px 0px;
+    }
+    .long-select {
+        width: 100%;
+    }
+    .input-multiply_tags {
+        width: inherit;
+    }
+}

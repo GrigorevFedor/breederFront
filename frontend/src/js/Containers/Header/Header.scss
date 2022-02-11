@@ -1,0 +1,16 @@
+    @import '../../../scss/variables';
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+// tablet
+@media screen and (min-width: 577px) and (max-width: 870px) {
+    .header {
+        margin-bottom: 80px;
+    }
+}
+
+// mobile 

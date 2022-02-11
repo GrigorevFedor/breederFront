@@ -1,0 +1,351 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.registration-block {
+    height: 100%;
+    width: 100%;
+    font-family: $font;
+    font-weight: $font-normal;
+    font-size: 12px;
+    line-height: 17px;
+    @include flex(center, center, row nowrap)
+}
+
+.registration-container {
+    background-color: $container-background;
+    min-height: 674px;
+    max-width: 1240px;
+    width: max-content;
+    margin: 45px auto;
+    border-radius: 10px;
+    padding: 45px 85px;
+    box-sizing: border-box;
+    @include flex(space-around, auto, column nowrap)
+}
+
+.registration {
+    &__header {
+        font-size: 32px;
+        line-height: 42px;
+        font-weight: $font-normal;
+    }
+    &-breeds {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        height: 100%;
+    }
+    &-name {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        height: 100%;
+    }
+    &-phone {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        height: 100%;
+    }
+    &-email {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        height: 100%;
+    }
+    &-contact-email {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        height: 100%;
+    }
+    &-password {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        height: 100%;
+    }
+    &-password-repeat {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        height: 100%;
+    }
+    &-email-checkbox {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        margin-bottom: 50px;
+        margin-top: -10px;
+    }
+}
+
+
+#registration-form {
+    display: grid;
+    grid-template-columns: 300px 300px 200px;
+    grid-template-rows: 130px 100px 100px 100px;
+    padding-top: 10px;
+    width: fit-content;
+}
+
+.email-checkbox_container input[type="checkbox"] {
+    display: none;
+    &:checked +label::after {
+        content: "";
+        position: absolute;
+        transition: all 0.2s ease;
+        left: 5px;
+        top: 5px;
+        width: 11px;
+        height: 8px;
+        border-radius: 1px;
+        border-left: 4px solid $radio-hover;
+        border-bottom: 4px solid $radio-hover;
+        transform: rotate(-45deg);
+    }
+    &:checked +label:hover:after {
+        border-left: 4px solid $radio-hover;
+        border-bottom: 4px solid $radio-hover;
+    }
+}
+
+.email-checkbox_container label {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    top: 30px;
+    color: #7e7e7e;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 22px;
+        height: 24px;
+        border: 1px solid $input-border;
+        border-radius: 4px;
+        background-color: #ffffff;
+    }
+    &:hover::before {
+        border: 1px solid $radio-hover;
+    }
+}
+
+.personal-data {
+    max-width: 500px;
+    width: 100%;
+    @include flex(flex-start, center); 
+    margin: 16px 0 24px 0;
+}
+
+.personal-data input[type="checkbox"] {
+    display: none;
+    &:checked +label::after {
+        content: "";
+        position: absolute;
+        transition: all 0.2s ease;
+        left: 5px;
+        top: 8px;
+        width: 11px;
+        height: 8px;
+        border-radius: 1px;
+        border-left: 4px solid #1A1A1B;
+        border-bottom: 4px solid #1A1A1B;
+        transform: rotate(-45deg);
+    }
+    &:checked +label:hover:after {
+        border-left: 4px solid $radio-hover;
+        border-bottom: 4px solid $radio-hover;
+    }
+}
+
+.personal-data label {
+    display: inline-block;
+    position: relative;
+    padding-left: 45px;
+    cursor: pointer;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        top: 4px;
+        width: 22px;
+        height: 24px;
+        border: 1px solid #1A1A1B;
+        border-radius: 4px;
+        background-color: #ffffff;
+    }
+    &:hover::before {
+        border: 1px solid $radio-hover;
+    }
+}
+
+.breed-tooltip {
+    padding: 0;
+    & .breed-tooltip_icon {
+        width: 18px;
+        height: 18px;
+    }
+} 
+
+.pd-agreement-link {
+    border-bottom: 1px dotted #000;
+}
+
+@media screen and (min-width: 577px) and (max-width: 870px) {    
+    .registration-block {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .registration-container {
+        background-color: $container-background;
+        height: 95%;
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 10px;
+        padding: 45px 85px;
+        box-sizing: border-box;
+        @include flex(space-around, center, column nowrap)
+    }
+    
+    .registration__header {
+        margin-bottom: 15px;
+
+    }
+    
+    #registration-form {
+        @include flex(space-around, auto, column nowrap);
+        padding-top: 10px;
+    }
+    
+    .personal-data {
+        margin: 16px 0 44px 0;
+    }
+    
+    .personal-data input[type="checkbox"] {
+        display: none;
+        &:checked +label::after {
+            content: "";
+            position: absolute;
+            transition: all 0.2s ease;
+            left: 5px;
+            top: 8px;
+            width: 11px;
+            height: 8px;
+            border-radius: 1px;
+            border-left: 4px solid #1A1A1B;
+            border-bottom: 4px solid #1A1A1B;
+            transform: rotate(-45deg);
+        }
+        &:checked +label:hover:after {
+            border-left: 4px solid $radio-hover;
+            border-bottom: 4px solid $radio-hover;
+        }
+    }
+    
+    .personal-data label {
+        display: inline-block;
+        position: relative;
+        padding-left: 45px;
+        cursor: pointer;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 4px;
+            width: 22px;
+            height: 24px;
+            border: 1px solid #1A1A1B;
+            background-color: #ffffff;
+        }
+        &:hover::before {
+            border: 1px solid $radio-hover;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 577px) {    
+    .registration-block {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .registration-container {
+        background-color: $container-background;
+        height: 95%;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 10px;
+        padding: 24px 45px;
+        box-sizing: border-box;
+        @include flex(space-around, center, column nowrap)
+    }
+    
+    .registration__header {
+        margin-bottom: 15px;
+
+    }
+    
+    #registration-form {
+        @include flex(space-around, auto, column nowrap);
+        padding-top: 10px;
+    }
+    
+    .personal-data {
+        margin: 16px 0 24px 0;
+    }
+    
+    .personal-data input[type="checkbox"] {
+        display: none;
+        &:checked +label::after {
+            content: "";
+            position: absolute;
+            transition: all 0.2s ease;
+            left: 5px;
+            top: 8px;
+            width: 11px;
+            height: 8px;
+            border-radius: 1px;
+            border-left: 4px solid #1A1A1B;
+            border-bottom: 4px solid #1A1A1B;
+            transform: rotate(-45deg);
+        }
+        &:checked +label:hover:after {
+            border-left: 4px solid $radio-hover;
+            border-bottom: 4px solid $radio-hover;
+        }
+    }
+    
+    .personal-data label {
+        display: inline-block;
+        position: relative;
+        padding-left: 45px;
+        cursor: pointer;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 4px;
+            width: 22px;
+            height: 24px;
+            border: 1px solid #1A1A1B;
+            background-color: #ffffff;
+        }
+        &:hover::before {
+            border: 1px solid $radio-hover;
+        }
+    }
+}

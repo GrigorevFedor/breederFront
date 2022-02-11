@@ -1,0 +1,43 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.modal-respond {
+    font-family: $font;
+    font-weight: $font-normal;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    @include flex(space-evenly, center, column nowrap);
+    &__title {
+        font-size: 24px;
+        line-height: 31px;
+        text-align: center;
+    }
+    &__text {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    &__cross {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        border: none;
+        background-color: transparent;
+    }
+}
+
+.modal-button {
+    width: 177px;
+    height: 36px;
+}
+
+.modal-small {
+    width: 358px;
+    height: 280px;
+    text-align: center;
+}
+
+.modal-big {
+    height: 481px;
+    width: 380px;
+}

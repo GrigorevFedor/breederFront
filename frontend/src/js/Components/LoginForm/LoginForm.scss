@@ -1,0 +1,115 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.login-form {
+    &__container {
+        height: 100%;
+        font-family: $font;
+        font-weight: $font-normal;
+        font-size: 18px;
+        line-height: 150%;
+        min-height: 620px;
+        margin-top: 45px;
+    }
+    &__title {
+        font-size: 32px;
+        line-height: 130%;
+    }
+    &__form {
+        height: 472px;
+        width: 428px;
+        padding: 10px 0px;
+        @include flex(center, center, column nowrap);
+        margin-left: 100px;
+        background-color: $container-background;
+        border-radius: 10px;
+    }
+    &__inner-container {
+        height: 100%;
+        @include flex(space-evenly, unset, column nowrap);
+    }
+}
+
+.err-msg-login {
+    text-align: center;
+}
+
+.stay-logged {
+    @include flex(flex-start, center);
+}
+
+.stay-logged input[type="checkbox"] {
+    display: none;
+    &:checked +label::after {
+        content: "";
+        position: absolute;
+        transition: all 0.2s ease;
+        left: 5px;
+        top: 4px;
+        width: 10px;
+        height: 8px;
+        border-radius: 1px;
+        border-left: 4px solid #1A1A1B;
+        border-bottom: 4px solid #1A1A1B;
+        transform: rotate(-45deg);
+    }
+    &:checked +label:hover:after {
+        border-left: 4px solid $radio-hover;
+        border-bottom: 4px solid $radio-hover;
+    }
+}
+
+.stay-logged label {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 140%;
+    position: relative;
+    padding-left: 45px;
+    cursor: pointer;
+    height: 24px;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 22px;
+        height: 24px;
+        border: 1px solid #1A1A1B;
+        border-radius: 4px;
+        background-color: #ffffff;
+    }
+    &:hover::before {
+        border: 1px solid $radio-hover;
+    }
+}
+
+@media screen and (max-width: 870px) {    
+    .login-form {
+        &__container {
+            height: 100%;
+            font-family: $font;
+            font-weight: $font-normal;
+            font-size: 16px;
+            line-height: 22px;
+            @include flex(center, unset, column nowrap);
+            margin-top: -20px;
+        }
+        &__title {
+            font-size: 32px;
+            line-height: 42px;
+        }
+        &__form {
+            height: 472px;
+            width: 100%;
+            @include flex(center, center, column nowrap);
+            margin: 0 auto;
+            background-color: $container-background;
+            border-radius: 10px;
+        }
+        &__inner-container {
+            height: 100%;
+            width: 80%;
+            @include flex(space-evenly, unset, column nowrap);
+        }
+    }
+}

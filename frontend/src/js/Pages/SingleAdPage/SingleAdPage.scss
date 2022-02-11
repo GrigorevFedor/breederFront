@@ -1,0 +1,51 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+
+.single-ad__container {
+    padding: 50px 45px 50px 85px;
+    background-color: #F9F9F9;
+    margin: 45px auto;
+    position: relative;
+}
+
+.single-ad__heading {
+    font-style: normal;
+    font-weight: $font-normal;
+    font-size: 32px;
+    line-height: 130%;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.creation-date {
+    font-weight: $font-normal;
+    font-size: 14px;
+    line-height: 140%;
+    color: #B8B8B8;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 930px) {    
+
+    .single-ad__container {
+        padding: 30px 25px 30px 45px;
+        margin-top: -20px;
+    }
+
+    .single-ad__heading {
+        font-size: 28px;
+        line-height: 130%;
+    }
+}
+
+@media screen and (max-width: 400px) {    
+
+    .single-ad__container {
+        padding: 30px 25px 30px 25px;
+    }
+
+    .single-ad__heading {
+        font-size: 26px;
+        line-height: 130%;
+    }
+}

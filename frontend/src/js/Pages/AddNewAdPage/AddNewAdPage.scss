@@ -1,0 +1,17 @@
+@import '../../../scss/mixins';
+@import '../../../scss/variables';
+
+.add-ad__container {
+    padding: 50px 45px 50px 85px;
+    background-color: #F9F9F9;
+    margin: 45px auto;
+}
+
+.add-ad__heading {
+    font-style: normal;
+    font-weight: $font-normal;
+    font-size: 32px;
+    line-height: 130%;
+    color: #000000;
+    margin-bottom: 60px;
+}

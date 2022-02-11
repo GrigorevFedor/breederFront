@@ -1,0 +1,53 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.acc-settings_container {
+    margin: 90px auto;
+}
+
+.acc-settings_wrapper {
+    margin-top: 60px;
+    @include flex(flex-start, flex-start, row nowrap);
+    background-color: $container-background;
+    min-height: 520px;
+    border-radius: 10px;
+    padding: 40px 0 40px 28px; 
+}
+.acc-settings__heading {
+    font-size: 32px;
+    line-height: 130%;
+    font-family: $font;
+    color: $text-color;
+}
+
+.form-divider-line {
+    display: none;
+}
+
+@media screen and (max-width: 870px) {    
+    
+    .acc-settings_container {
+        width: 100%;
+    }
+
+    .acc-settings_wrapper {
+        margin-top: 60px;
+        @include flex(flex-start, flex-start, column nowrap);
+        background-color: $container-background;
+        min-height: 520px;
+        border-radius: 10px;
+        width: 100%;
+        padding: 40px 0 40px 0; 
+    }
+    .acc-settings__heading {
+        margin-left: 28px;
+    }   
+
+    .form-divider-line {
+        background-color: #E0E0E0;
+        height: 1px;
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}

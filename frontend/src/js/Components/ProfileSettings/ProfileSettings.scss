@@ -1,0 +1,88 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.acc-settings__profile {
+    font-family: $font;
+    padding-left: 40px;
+    border-left: 1px solid #E0E0E0;
+}
+
+.profile__heading {
+    font-weight: $font-normal;
+    font-size: 24px;
+    line-height: 130%;
+    color: $text-color;
+}
+
+.profile__avatar-container {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin-top: 36px;
+    margin-bottom: 24px;
+}
+
+.profile__avatar {
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.profile__avatar_delete {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    font-family: $font;
+    font-weight: 600;
+    width: 14px;
+    height: 14px;
+    & .fas {
+        font-size: 14px;
+    }
+}
+
+.profile__avatar_input {
+    display: none;
+}
+
+.profile__email {
+    margin-bottom: 24px;
+    font-weight: $font-normal;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+.profile__btn {
+    width: 140px;
+    height: 40px;
+    margin-top: 36px;
+}
+
+.profile__password_label,
+.profile__email_label {
+    float: left;
+}
+
+.ediit-block {
+    margin-bottom: 20px;
+}
+
+
+@media screen and (max-width: 870px) {    
+    .acc-settings__profile {
+        font-family: $font;
+        padding-left: 38px;
+        border-left: none;
+    }
+    .form-divider-line {
+        background-color: #B8B8B8;
+        height: 1px;
+        width: 100%;
+        display: block;
+    }
+    
+}

@@ -1,3 +1,5 @@
+import { getState } from 'react-redux'
+
 export const getBroods = () => {
     return function (dispatch) {
         fetch(`/api/v2/announcements/?page=1`)
@@ -19,7 +21,7 @@ export const getBroods = () => {
 
 export const getFilteredBroods = () => {
     return function (dispatch) {
-        fetch(`/api/v2/announcements/` + getQueryParams())
+        fetch(`/api/v2/announcements/` + getQueryParams(getState().filteredParams))
             .then((response) => {
                 return response.json();
             })
@@ -31,7 +33,7 @@ export const getFilteredBroods = () => {
     }
 }
 
-const getQueryParams = () => {
+const getQueryParams = (filterParams) => {
     let queryString = ''
     Object.keys(filterParams).forEach((key) => {
         if (filterParams[key].fetchServer) {

@@ -22,8 +22,12 @@ const composer = window.__REDUX_DEVTOOLS_EXTENSION__ ? compose(
     applyMiddleware(routerMiddleware(history), thunk),
 );
 
-export const initStore = () => {
-    const store = createStore(persistReducer(persistConfig, rootReducer(history)), composer);
-    let persistor = persistStore(store)
-    return { store, persistor }
-}
+// export const initStore = () => {
+//     const store = createStore(persistReducer(persistConfig, rootReducer(history)), composer);
+//     let persistor = persistStore(store)
+//     return { store, persistor }
+// }
+
+export const store = createStore(persistReducer(persistConfig, rootReducer(history)), composer);
+
+export const persistor = persistStore(store)

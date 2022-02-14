@@ -1,4 +1,4 @@
-export const InitialState = {
+export const InitialFilterParamsState = {
     city:
     {
         type: 'array',
@@ -41,13 +41,13 @@ export const InitialState = {
             }
         },
         filterCallback: function () {
-            return (data) => {
-                if (this.value.length > 0) {
+            return (data, value) => {
+                if (value.length > 0) {
                     return data.filter((item) => {
-                        if (this.value.includes("Male") && item.male_count > 0) {
+                        if (value.includes("Male") && item.male_count > 0) {
                             return true
                         }
-                        if (this.value.includes("Female") && item.female_count > 0) {
+                        if (value.includes("Female") && item.female_count > 0) {
                             return true
                         }
                         return false
@@ -65,10 +65,10 @@ export const InitialState = {
         label: 'Только с документами',
         fetchServer: false,
         filterCallback: function () {
-            return (data) => {
-                if (this.value) {
+            return (data, value) => {
+                if (value) {
                     return data.filter((item) => {
-                        return item.with_documents == this.value
+                        return item.with_documents == value
                     })
                 } else {
                     return data
@@ -77,3 +77,5 @@ export const InitialState = {
         },
     },
 }
+
+

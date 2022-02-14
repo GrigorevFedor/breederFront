@@ -3,18 +3,22 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import SelectInput from '../../Components/UI/input/SelectInput';
 import Button from '../../Components/UI/button/Button';
 import React, { useEffect, useState, useMemo } from 'react'
-import { useSelector } from 'react-redux';
-import { InitialState } from './AdsFilterInitialState'
+import { useDispatch, useSelector } from 'react-redux';
+import { getFilteredBroods, initFilterItems, setFilterValue, cancelFilter } from '../../store/actions/broods'
+import { REQUEST_STATUS } from "../../constants";
 
 const FilterItem = ({ filterKey, filterObj }) => {
+    const dispatch = useDispatch();
+    const broods = useSelector(state => state.broods.broodsItems)
 
-    // const handleChange = (e) => {
-    //     const { name, value } = e.target;
-    //     const nextState = { ...filterParams }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        dispatch(setFilterValue(name, value))
+    };
 
-    //     nextState[name].value = value
-    //     setFilterParams(nextState)
-    // };
+    useEffect(() => {
+        dispatch(initFilterItems(filterKey))
+    }, [broods])
 
     if (filterObj.type == 'array') {
         return (
@@ -25,7 +29,7 @@ const FilterItem = ({ filterKey, filterObj }) => {
                         propValue={filterObj.value}
                         items={filterObj.items}
                         inputName={filterKey}
-                        // onChange={handleChange}
+                        onChange={handleChange}
                         customClass='card-input'
                         customLabel='card-label'
                         classNameInput='long-select'
@@ -39,7 +43,7 @@ const FilterItem = ({ filterKey, filterObj }) => {
     if (filterObj.type == 'boolean') {
         return (
             <>
-                <FormControlLabel control={<Checkbox value={filterObj.value} />} label={filterObj.label} />
+                <FormControlLabel control={<Checkbox name={filterKey} checked={filterObj.value} value={filterObj.value} onChange={(e) => { dispatch(setFilterValue(filterKey, !filterObj.value)) }} />} label={filterObj.label} />
             </>
         )
     }
@@ -50,36 +54,17 @@ const FilterItem = ({ filterKey, filterObj }) => {
 }
 
 
-export const Filter = ({ filterKey }) => {
+export const Filter = () => {
 
-    const broods = useSelector(state => state.broods)
-    const [filterParams, setFilterParams] = useState(InitialState);
+    const dispatch = useDispatch();
+    const filterParams = useSelector(state => state.broods.filterParams)
+    const currentFilterParams = useSelector(state => state.broods.currentFilterParams)
+    const requestStatus = useSelector(state => state.broods.request.status)
 
     function handleSubmit(e) {
-        // e.preventDefault()
-        // setLoaded(false)
-        // getFilteredBroods()
-        // debugger
-        // let nextState = [...broods]
-        // Object.keys(filterParams).forEach((key) => {
-        //     if (!filterParams[key].fetchServer) {
-        //         nextState = filterParams[key].filterCallback(nextState)
-        //     }
-        // })
-
-        // setFilteredBroods(nextState)
+        e.preventDefault()
+        dispatch(getFilteredBroods())
     }
-
-    useEffect(() => {
-        const nextState = { ...filterParams }
-        Object.keys(filterParams).forEach((key) => {
-            if (filterParams[key].fetchServer) {
-                nextState[key].items = filterParams[key].getItems()(broods)
-            }
-        })
-
-        setFilterParams(nextState)
-    }, [broods])
 
     return (
         <>
@@ -102,50 +87,56 @@ export const Filter = ({ filterKey }) => {
                 />
             </form>
 
-            {/* {Object.keys(filterParams).map(item => (
-                <FilterCancel filterObj={filterParams[item]} key={item} />
-            ))} */}
+            {requestStatus == REQUEST_STATUS.SUCCESS && Object.keys(currentFilterParams).map(itemKey => (
+                <FilterCancel filterObj={currentFilterParams[itemKey]} key={itemKey} filterKey={itemKey} />
+            ))}
         </>
     )
 }
 
 export const FilterCancel = ({ filterKey, filterObj }) => {
+    const dispatch = useDispatch()
     const [visible, setVisible] = useState(false)
     const initPlaceholder = (filterKey, filterObj) => {
-        // if (filterKey == 'city' || filterKey == 'breed' || filterKey == 'sex') {
-        //     return filterValue.join(', ')
-        // }
-        // if (filterKey == 'withDocs') {
-        //     return 'Только с документами'
         if (filterObj.type == 'array') {
-            if (filterObj.value.length > 0) {
-                return filterObj.value.join(', ')
-            }
-
-            if (filterObj.type == 'boolean') {
-                return filterObj.label
-            }
+            return filterObj.value.join(', ')
+        }
+        if (filterObj.type == 'boolean') {
+            return filterObj.label
         }
     }
-    // useEffect(() => {
 
-    //     if ((filterKey == 'city' || filterKey == 'breed' || filterKey == 'sex') && filterValue.length > 0) {
-    //         setVisible(true)
-    //     }
-    //     if (filterKey == 'withDocs' && filterValue) {
-    //         setVisible(true)
-    //     }
-    //     setVisible(false)
-    // }, [])
+    const setVisibility = () => {
+        debugger
+        switch (filterObj.type) {
+            case 'array':
+                setVisible(filterObj.value.length > 0)
+                break
+            case 'boolean':
+                setVisible(filterObj.value)
+                break
+            default:
+                return setVisible(false)
+        }
+    }
+
+    useEffect(() => {
+        setVisibility()
+    })
+
+    const handlerClick = () => {
+        dispatch(cancelFilter(filterKey))
+        dispatch(getFilteredBroods())
+    }
 
     return (
         <>
             {visible &&
                 <div>
                     <span>{initPlaceholder(filterKey, filterObj)}</span>
-                    <span>
+                    <span onClick={handlerClick}>
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5.00061 5L8.93286 8.93225M1.06836 8.93225L5.00061 5L1.06836 8.93225ZM8.93286 1.06775L4.99986 5L8.93286 1.06775ZM4.99986 5L1.06836 1.06775L4.99986 5Z" stroke="#543D93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M5.00061 5L8.93286 8.93225M1.06836 8.93225L5.00061 5L1.06836 8.93225ZM8.93286 1.06775L4.99986 5L8.93286 1.06775ZM4.99986 5L1.06836 1.06775L4.99986 5Z" stroke="#543D93" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </span>
                 </div>}

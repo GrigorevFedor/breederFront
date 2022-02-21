@@ -14,7 +14,6 @@ import { getFilteredBroods, incrementPage } from '../../store/actions/broods'
 
 
 function AdsContainer() {
-
     const dispatch = useDispatch()
     const requestStatus = useSelector(state => state.broods.request.status)
     const filteredBroods = useSelector(state => state.broods.filteredBroods);
@@ -25,7 +24,7 @@ function AdsContainer() {
 
     const clickHandler = () => {
         dispatch(incrementPage())
-        dispatch(getFilteredBroods())
+        dispatch(getFilteredBroods(true))
     }
 
     return (

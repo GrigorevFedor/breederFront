@@ -4,7 +4,7 @@ import SelectInput from '../../Components/UI/input/SelectInput';
 import Button from '../../Components/UI/button/Button';
 import React, { useEffect, useState, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilteredBroods, initFilterItems, setFilterValue, cancelFilter } from '../../store/actions/broods'
+import { getFilteredBroods, initFilterItems, setFilterValue, cancelFilter, dafaultPage } from '../../store/actions/broods'
 import { REQUEST_STATUS } from "../../constants";
 
 const FilterItem = ({ filterKey, filterObj }) => {
@@ -63,6 +63,7 @@ export const Filter = () => {
 
     function handleSubmit(e) {
         e.preventDefault()
+        dispatch(dafaultPage())
         dispatch(getFilteredBroods())
     }
 

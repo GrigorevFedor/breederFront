@@ -49,19 +49,20 @@ const broodsReducer = (state = initialState, { type, payload }) => {
 
             Object.keys(state.filterParams).forEach((key) => {
                 if (!state.filterParams[key].fetchServer) {
-                    payload.records = state.filterParams[key].filterCallback()(payload.records, state.filterParams[key].value)
+                    payload.data.records = state.filterParams[key].filterCallback()(payload.data.records, state.filterParams[key].value)
                 }
             })
-
+            console.log(payload.add)
+            console.log(payload.add ? [...state.filteredBroods, ...payload.data.records] : [...payload.data.records])
             return {
                 ...state,
-                filteredBroods: [...state.filteredBroods, ...payload.records],
+                filteredBroods: payload.add ? [...state.filteredBroods, ...payload.data.records] : [...payload.data.records],
                 request: {
                     ...state.request,
                     status: REQUEST_STATUS.SUCCESS,
                 },
                 currentFilterParams: state.filterParams,
-                total: payload.total,
+                total: payload.data.total,
             };
         case 'INIT_FILTER_ITEMS':
             if (state.filterParams[payload].items) {
@@ -118,6 +119,11 @@ const broodsReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 page: state.page + 1
+            }
+        case 'DEFAULT_PAGE':
+            return {
+                ...state,
+                page: 1
             }
         default:
             return state

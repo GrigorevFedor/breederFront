@@ -28,7 +28,7 @@ export const getBroods = () => async (dispatch) => {
     }
 }
 
-export const getFilteredBroods = () => async (dispatch, getState) => {
+export const getFilteredBroods = (add = false) => async (dispatch, getState) => {
     const { filterParams, page } = getState().broods
     dispatch({ type: 'GET_BROODS_PENDING' })
     console.log(getState().broods.filterParams, getQueryParams(filterParams, page))
@@ -41,7 +41,7 @@ export const getFilteredBroods = () => async (dispatch, getState) => {
             throw new Error(`error ${response.status}`);
         }
         const data = await response.json();
-        dispatch({ type: 'SET_FILTERED_BROODS', payload: data })
+        dispatch({ type: 'SET_FILTERED_BROODS', payload: { data, add } })
     } catch (e) {
         dispatch({ type: 'GET_BROODS_FAILURE', payload: e.message });
     }
@@ -50,6 +50,11 @@ export const getFilteredBroods = () => async (dispatch, getState) => {
 export const cancelFilter = (name) => ({
     type: 'CANCEL_FILTER',
     payload: name,
+})
+
+export const dafaultPage = () => ({
+    type: 'DEFAULT_PAGE',
+
 })
 
 export const incrementPage = () => ({
